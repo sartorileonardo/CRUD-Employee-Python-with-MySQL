@@ -35,21 +35,19 @@ def insert():
     income = input("Digite a renda:\n")
     income = float(income)
 
-    if validation(fname, lname, age, sex, income):
-        # Prepare SQL query to INSERT a record into the database.
-        sqlInsert = """INSERT INTO EMPLOYEE(FIRST_NAME,
-        LAST_NAME, AGE, SEX, INCOME)
-        VALUES ('%s','%s', '%d', '%c', '%.2d')""" % (fname, lname, age, sex, income)
+   
+    # Prepare SQL query to INSERT a record into the database.
+    sqlInsert = """INSERT INTO EMPLOYEE(FIRST_NAME,
+    LAST_NAME, AGE, SEX, INCOME)
+    VALUES ('%s','%s', '%d', '%c', '%.2d')""" % (fname, lname, age, sex, income)
 
-        # Execute the SQL command
-        cursor.execute(sqlInsert)
-        # Commit your changes in the database
-        db.commit()
+    # Execute the SQL command
+    cursor.execute(sqlInsert)
+    # Commit your changes in the database
+    db.commit()
 
-        return print("Salvo com sucesso!\n")
-    else:
-        print("Você digitou dados inválidos!")
-        opc = 0
+    return print("Salvo com sucesso!\n")
+   
 
 #Function list all records of employee
 def selectAll():
@@ -109,21 +107,18 @@ def update():
     income = input("Digite a renda:\n")
     income = float(income)
 
-    if validation(fname, lname, age, sex, income):
-        # Prepare SQL query to UPDATE a record into the database.
-        sqlInsert = """UPDATE EMPLOYEE SET FIRST_NAME = '%s',
-        LAST_NAME = '%s', AGE = '%d', SEX = '%c', INCOME = '%.2d'
-        WHERE ID = '%d'""" % (fname, lname, age, sex, income, id)
+    # Prepare SQL query to UPDATE a record into the database.
+    sqlInsert = """UPDATE EMPLOYEE SET FIRST_NAME = '%s',
+    LAST_NAME = '%s', AGE = '%d', SEX = '%c', INCOME = '%.2d'
+    WHERE ID = '%d'""" % (fname, lname, age, sex, income, id)
 
-        # Execute the SQL command
-        cursor.execute(sqlInsert)
-        # Commit your changes in the database
-        db.commit()
+    # Execute the SQL command
+    cursor.execute(sqlInsert)
+    # Commit your changes in the database
+    db.commit()
 
-        return print("Alterado com sucesso!\n")
-    else:
-        print("Você digitou dados inválidos!")
-        opc = 0
+    return print("Alterado com sucesso!\n")
+    
 
 #Function remove record
 def delete():
