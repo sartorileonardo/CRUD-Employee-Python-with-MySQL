@@ -180,7 +180,7 @@ def proceed(confirm):
 ############# FIM DAS FUNÇÕES ######################
 
 # Open database connection
-db = pymysql.connect("localhost","root","root","TESTDB" )
+db = pymysql.connect("localhost","root","root","EMPLOYEE_DB" )
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
